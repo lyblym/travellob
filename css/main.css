@@ -67,6 +67,11 @@ nav .content .links li label {
     display: none;
 }
 
+/* Close button for mobile menu - hidden by default */
+.content .links .close-btn {
+    display: none;
+}
+
 nav .content .links li a:hover, 
 nav .content .links li label:hover {
     color: #1c0a51;
@@ -192,12 +197,46 @@ nav #show-search:checked ~ .search-box {
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     }
 
+    /* Show close button only in mobile menu */
+    .content .links .close-btn {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #f4f5fb;
+        font-size: 28px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+
+    .content .links .close-btn:hover {
+        background-color: rgba(244, 245, 251, 0.1);
+        transform: rotate(90deg);
+    }
+
+    .content .links .close-btn i {
+        pointer-events: none;
+    }
+
     nav #show-menu:checked ~ .content .links {
         left: 0;
     }
 
     .content .links li {
         margin: 15px 20px;
+    }
+
+    /* First menu item needs extra top margin to avoid overlapping with close button */
+    .content .links li:first-of-type {
+        margin-top: 80px;
     }
 
     .content .links li a, 
